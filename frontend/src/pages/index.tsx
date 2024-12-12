@@ -42,7 +42,7 @@ export default function WebSite() {
     },
 
     {
-      href: '/about',
+href: '/about';
       label: 'about',
     },
 
