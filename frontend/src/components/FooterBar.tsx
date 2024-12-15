@@ -16,7 +16,7 @@ export default function FooterBar({ children }: Props) {
           <b>
             &copy;{year},{` `}
             <a href='https://flatlogic.com/' rel='noreferrer' target='_blank'>
-              Flatlogic
+              HopeConnect
             </a>
             .
           </b>
