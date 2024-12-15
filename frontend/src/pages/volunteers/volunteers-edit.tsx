@@ -71,7 +71,7 @@ const EditVolunteersPage = () => {
       setInitialValues(newInitialVal);
     }
   }, [volunteers]);
-
+}, [volunteers, initVals]);
   const handleSubmit = async (data) => {
     await dispatch(update({ id: id, data }));
     await router.push('/volunteers/volunteers-list');
