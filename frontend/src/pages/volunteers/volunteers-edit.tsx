@@ -53,7 +53,7 @@ const EditVolunteersPage = () => {
   useEffect(() => {
     dispatch(fetch({ id: id }));
   }, [id]);
-
+}, [id, dispatch]);
   useEffect(() => {
     if (typeof volunteers === 'object') {
       setInitialValues(volunteers);
