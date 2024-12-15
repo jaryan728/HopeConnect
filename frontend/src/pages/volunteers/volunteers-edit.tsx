@@ -50,11 +50,9 @@ const EditVolunteersPage = () => {
 
   const { id } = router.query;
 
-  useEffect(() => {
+useEffect(() => {
     dispatch(fetch({ id: id }));
-  }, [id]);
-}, [id, dispatch]);
-  useEffect(() => {
+}, [id, dispatch]);  useEffect(() => {
     if (typeof volunteers === 'object') {
       setInitialValues(volunteers);
     }
