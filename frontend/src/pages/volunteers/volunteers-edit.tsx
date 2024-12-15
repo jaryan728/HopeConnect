@@ -1,5 +1,4 @@
-import { mdiChartTimelineVariant, mdiUpload } from '@mdi/js';
-import Head from 'next/head';
+import { mdiChartTimelineVariant } from '@mdi/js';import Head from 'next/head';
 import React, { ReactElement, useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.min.css';
 import DatePicker from 'react-datepicker';
