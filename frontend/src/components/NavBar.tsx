@@ -43,7 +43,7 @@ export default function NavBar({ menu, className = '', children }: Props) {
           `border-b  border-pastelEmeraldTheme-outsideCardColor dark:border-dark-700`
         }`}
       >
-        <div className='flex flex-1 items-stretch h-14'>{children}</div>
+<Logo className='h-8 w-auto' />
         <div className='flex-none items-stretch flex h-14 lg:hidden'>
           <NavBarItemPlain onClick={handleMenuNavBarToggleClick}>
             <BaseIcon
