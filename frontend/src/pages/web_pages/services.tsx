@@ -190,7 +190,7 @@ export default function WebSite() {
         <FeaturesSection
           projectName={'HopeConnect'}
           image={['Innovative community service features']}
-          withBg={1}
+          withBg={0}
           features={features_points}
           mainText={`Explore ${projectName} Core Services`}
           subTitle={`Discover the key services offered by ${projectName} that empower communities and foster positive change.`}
