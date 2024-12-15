@@ -60,19 +60,17 @@ useEffect(() => {
 
   useEffect(() => {
     if (typeof volunteers === 'object') {
-      const newInitialVal = { ...initVals };
+useEffect(() => {
+    if (typeof volunteers === 'object') {
+        const newInitialVal = { ...initVals };
 
-      Object.keys(initVals).forEach(
-        (el) => (newInitialVal[el] = volunteers[el] || ''),
-      );
+        Object.keys(initVals).forEach(
+            (el) => (newInitialVal[el] = volunteers[el] || ''),
+        );
 
-      setInitialValues(newInitialVal);
+        setInitialValues(newInitialVal);
     }
-  }, [volunteers]);
-}, [volunteers, initVals]);
-  const handleSubmit = async (data) => {
-    await dispatch(update({ id: id, data }));
-    await router.push('/volunteers/volunteers-list');
+}, [volunteers, initVals]);    await router.push('/volunteers/volunteers-list');
   };
 
   return (
