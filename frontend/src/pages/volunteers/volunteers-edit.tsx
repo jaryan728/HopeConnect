@@ -32,42 +32,7 @@ import { saveFile } from '../../helpers/fileSaver';
 import dataFormatter from '../../helpers/dataFormatter';
 
 
-const EditVolunteersPage = () => {
-  const router = useRouter();
-  const dispatch = useAppDispatch();
-  const initVals = {
-    user: '',
-
-    skills: '',
-
-    availability: '',
-
-    preferred_method: '',
-  };
-  const [initialValues, setInitialValues] = useState(initVals);
-
-  const { volunteers } = useAppSelector((state) => state.volunteers);
-
-  const { id } = router.query;
-
-useEffect(() => {
-    dispatch(fetch({ id: id }));
-}, [id, dispatch]);  useEffect(() => {
-    if (typeof volunteers === 'object') {
-      setInitialValues(volunteers);
-    }
-  }, [volunteers]);
-
-useEffect(() => {
-    if (typeof volunteers === 'object') {
-        const newInitialVal = { ...initVals };
-        Object.keys(initVals).forEach(
-            (el) => (newInitialVal[el] = volunteers[el] || ''),
-        );
-        setInitialValues(newInitialVal);
-    }
-}, [volunteers, initVals]);  };
-
+const EditVolunteersPage = () => { const router = useRouter(); const dispatch = useAppDispatch(); const initVals = { user: '', skills: '', availability: '', preferred_method: '', }; const [initialValues, setInitialValues] = useState(initVals); const { volunteers } = useAppSelector((state) => state.volunteers); const { id } = router.query; useEffect(() => { dispatch(fetch({ id: id })); }, [id, dispatch]); useEffect(() => { if (typeof volunteers === 'object') { setInitialValues(volunteers); } }, [volunteers]); useEffect(() => { if (typeof volunteers === 'object') { const newInitialVal = { ...initVals }; Object.keys(initVals).forEach((el) => (newInitialVal[el] = volunteers[el] || '')); setInitialValues(newInitialVal); } }, [volunteers]); return (<><Head><title>{getPageTitle('Edit volunteers')}</title></Head><SectionMain><SectionTitleLineWithButton icon={mdiChartTimelineVariant} title={'Edit volunteers'} main>{''}</SectionTitleLineWithButton><CardBox><Formik enableReinitialize initialValues={initialValues} onSubmit={(values) => handleSubmit(values)}><Form><FormField label='User' labelFor='user'><Field name='user' id='user' component={SelectField} options={initialValues.user} itemRef={'users'} showField={'firstName'}></Field></FormField><FormField label='Skills' hasTextareaHeight><Field name='skills' as='textarea' placeholder='Skills' /></FormField><FormField label='Availability'><Field name='availability' placeholder='Availability' /></FormField><FormField label='PreferredMethod' labelFor='preferred_method'><Field name='preferred_method' id='preferred_method' component='select'><option value='online'>online</option><option value='offline'>offline</option></Field></FormField><BaseDivider /><BaseButtons><BaseButton type='submit' color='info' label='Submit' /><BaseButton type='reset' color='info' outline label='Reset' /><BaseButton type='reset' color='danger' outline label='Cancel' onClick={() => router.push('/volunteers/volunteers-list')} /></BaseButtons></Form></Formik></CardBox></SectionMain></>); };
   return (
     <>
       <Head>
