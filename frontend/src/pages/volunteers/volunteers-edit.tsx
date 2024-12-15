@@ -58,20 +58,15 @@ useEffect(() => {
     }
   }, [volunteers]);
 
-  useEffect(() => {
-    if (typeof volunteers === 'object') {
 useEffect(() => {
     if (typeof volunteers === 'object') {
         const newInitialVal = { ...initVals };
-
         Object.keys(initVals).forEach(
             (el) => (newInitialVal[el] = volunteers[el] || ''),
         );
-
         setInitialValues(newInitialVal);
     }
-}, [volunteers, initVals]);    await router.push('/volunteers/volunteers-list');
-  };
+}, [volunteers, initVals]);  };
 
   return (
     <>
