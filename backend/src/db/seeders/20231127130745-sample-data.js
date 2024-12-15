@@ -37,16 +37,6 @@ const DonationsData = [
 
     location: 'East Side',
   },
-
-  {
-    // type code here for "relation_one" field
-
-    item: 'Toys',
-
-    quantity: 20,
-
-    location: 'Riverbank',
-  },
 ];
 
 const ReportsData = [
@@ -69,7 +59,7 @@ const ReportsData = [
 
     location: 'Central Park',
 
-    status: 'pending',
+    status: 'resolved',
 
     // type code here for "relation_one" field
   },
@@ -80,18 +70,6 @@ const ReportsData = [
     description: 'Family in need of food supplies.',
 
     location: 'East Side',
-
-    status: 'pending',
-
-    // type code here for "relation_one" field
-  },
-
-  {
-    // type code here for "images" field
-
-    description: 'Lost pet found near the river.',
-
-    location: 'Riverbank',
 
     status: 'pending',
 
@@ -126,16 +104,6 @@ const VolunteersData = [
     skills: 'Childcare, Tutoring',
 
     availability: 'Evenings',
-
-    preferred_method: 'offline',
-  },
-
-  {
-    // type code here for "relation_one" field
-
-    skills: 'Event Planning, Fundraising',
-
-    availability: 'Flexible',
 
     preferred_method: 'online',
   },
@@ -176,17 +144,6 @@ async function associateDonationWithUser() {
   if (Donation2?.setUser) {
     await Donation2.setUser(relatedUser2);
   }
-
-  const relatedUser3 = await Users.findOne({
-    offset: Math.floor(Math.random() * (await Users.count())),
-  });
-  const Donation3 = await Donations.findOne({
-    order: [['id', 'ASC']],
-    offset: 3,
-  });
-  if (Donation3?.setUser) {
-    await Donation3.setUser(relatedUser3);
-  }
 }
 
 async function associateReportWithUser() {
@@ -222,17 +179,6 @@ async function associateReportWithUser() {
   if (Report2?.setUser) {
     await Report2.setUser(relatedUser2);
   }
-
-  const relatedUser3 = await Users.findOne({
-    offset: Math.floor(Math.random() * (await Users.count())),
-  });
-  const Report3 = await Reports.findOne({
-    order: [['id', 'ASC']],
-    offset: 3,
-  });
-  if (Report3?.setUser) {
-    await Report3.setUser(relatedUser3);
-  }
 }
 
 async function associateVolunteerWithUser() {
@@ -267,17 +213,6 @@ async function associateVolunteerWithUser() {
   });
   if (Volunteer2?.setUser) {
     await Volunteer2.setUser(relatedUser2);
-  }
-
-  const relatedUser3 = await Users.findOne({
-    offset: Math.floor(Math.random() * (await Users.count())),
-  });
-  const Volunteer3 = await Volunteers.findOne({
-    order: [['id', 'ASC']],
-    offset: 3,
-  });
-  if (Volunteer3?.setUser) {
-    await Volunteer3.setUser(relatedUser3);
   }
 }
 

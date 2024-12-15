@@ -275,11 +275,6 @@ module.exports = class VolunteersDBApi {
           transaction,
         });
 
-    //    rows = await this._fillWithRelationsAndFilesForRows(
-    //      rows,
-    //      options,
-    //    );
-
     return { rows, count };
   }
 

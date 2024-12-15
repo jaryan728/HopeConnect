@@ -329,6 +329,20 @@ module.exports = {
       );
 
       await queryInterface.addColumn(
+        'users',
+        'app_roleId',
+        {
+          type: Sequelize.DataTypes.UUID,
+
+          references: {
+            model: 'roles',
+            key: 'id',
+          },
+        },
+        { transaction },
+      );
+
+      await queryInterface.addColumn(
         'donations',
         'userId',
         {
@@ -456,15 +470,6 @@ module.exports = {
       );
 
       await queryInterface.addColumn(
-        'permissions',
-        'name',
-        {
-          type: Sequelize.DataTypes.TEXT,
-        },
-        { transaction },
-      );
-
-      await queryInterface.addColumn(
         'roles',
         'name',
         {
@@ -483,15 +488,10 @@ module.exports = {
       );
 
       await queryInterface.addColumn(
-        'users',
-        'app_roleId',
+        'permissions',
+        'name',
         {
-          type: Sequelize.DataTypes.UUID,
-
-          references: {
-            model: 'roles',
-            key: 'id',
-          },
+          type: Sequelize.DataTypes.TEXT,
         },
         { transaction },
       );
@@ -513,15 +513,13 @@ module.exports = {
      */
     const transaction = await queryInterface.sequelize.transaction();
     try {
-      await queryInterface.removeColumn('users', 'app_roleId', { transaction });
+      await queryInterface.removeColumn('permissions', 'name', { transaction });
 
       await queryInterface.removeColumn('roles', 'role_customization', {
         transaction,
       });
 
       await queryInterface.removeColumn('roles', 'name', { transaction });
-
-      await queryInterface.removeColumn('permissions', 'name', { transaction });
 
       await queryInterface.removeColumn('volunteers', 'preferred_method', {
         transaction,
@@ -560,6 +558,8 @@ module.exports = {
       await queryInterface.removeColumn('donations', 'item', { transaction });
 
       await queryInterface.removeColumn('donations', 'userId', { transaction });
+
+      await queryInterface.removeColumn('users', 'app_roleId', { transaction });
 
       await queryInterface.removeColumn('users', 'provider', { transaction });
 

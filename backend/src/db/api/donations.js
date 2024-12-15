@@ -288,11 +288,6 @@ module.exports = class DonationsDBApi {
           transaction,
         });
 
-    //    rows = await this._fillWithRelationsAndFilesForRows(
-    //      rows,
-    //      options,
-    //    );
-
     return { rows, count };
   }
 

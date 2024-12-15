@@ -526,11 +526,6 @@ module.exports = class UsersDBApi {
           transaction,
         });
 
-    //    rows = await this._fillWithRelationsAndFilesForRows(
-    //      rows,
-    //      options,
-    //    );
-
     return { rows, count };
   }
 

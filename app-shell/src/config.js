@@ -53,9 +53,6 @@ const config = {
       user: 'User',
   },
 
-  project_uuid: '0c672127-dbd9-4298-8c90-838c9aaa2266',
-  flHost: process.env.NODE_ENV === 'production' ? 'https://flatlogic.com/projects' : 'http://localhost:3000/projects',
-
 };
 config.pexelsKey = 'Vc99rnmOhHhJAbgGQoKLZtsaIVfkeownoQNbTj78VemUjKh08ZYRbf18';
 config.pexelsQuery = 'helping hands and globe';
